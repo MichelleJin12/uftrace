@@ -3,7 +3,7 @@ ARG test
 RUN apt-get update \
     && apt-get install -y --no-install-recommends git gcc make ca-certificates
 RUN mkdir -p /usr/src
-RUN git clone https://github.com/namhyung/uftrace /usr/src/uftrace
+RUN git clone -b docker_test --single-branch https://github.com/MichelleJin12/uftrace.git /usr/src/uftrace
 RUN if [ "$test" = "yes" ] ; then \
         cd /usr/src/uftrace \
         && ./misc/install-deps.sh -y \
